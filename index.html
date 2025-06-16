@@ -194,9 +194,12 @@
 .content table th {
   background-color: #a5d6a7;
 }
+      @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
       
-      
-    }
+    
   </style>
 </head>
 <body>
@@ -216,9 +219,16 @@
 
 <main>
   <section id="informasi" class="active">
-    <h2>Informasi Website</h2>
-    <p>Selamat datang di website pengurus pondok Queen Ainul Yaqien. Situs ini bersifat privat, hanya pengurus yang boleh membuka wibsate ini, tujuan dibuatnya website ini untuk bisa menjadi sarana informasi digital sesama pengurus.</p>
-  </section>
+  <h2>Informasi Website</h2>
+  <p>Selamat datang di website pengurus pondok Queen Ainul Yaqien. Situs ini bersifat privat, hanya pengurus yang boleh membuka wibsate ini, tujuan dibuatnya website ini untuk bisa menjadi sarana informasi digital sesama pengurus.</p>
+
+  <div style="margin: 30px auto; max-width: 320px; padding: 16px; background-color: #e6fff0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 128, 0, 0.15); text-align: center; animation: fadeIn 1.2s ease-in-out;">
+    <h3 style="margin-bottom: 10px; color: #006400;">🌙✨ Hitung Mundur Maulid</h3>
+    <p id="countdown" style="font-size: 24px; font-weight: bold; color: #004d00;">Loading...</p>
+  </div>
+</section>
+
+
 
   <section id="struktur">
 <h2>Struktur Pengurus Pondok Queen Ainul Yaqien</h2>
@@ -440,6 +450,19 @@
       }
     });
   });
+  const targetDate = new Date("2025-10-15T00:00:00").getTime();
+const countdown = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+  if (distance < 0) {
+    document.getElementById("countdown").innerHTML = "📿 Libur Maulid Sudah Tiba!";
+    clearInterval(countdown);
+    return;
+  }
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  document.getElementById("countdown").innerHTML = `${days} hari lagi`;
+}, 1000);
+  
 </script>
 
 </body>
