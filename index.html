@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pondok Queen Ainul Yaqien</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+      background: linear-gradient(to bottom right, #e6fff3, #c8f5dc);
+      color: #004d26;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      background-color: #006644;
+      padding: 10px 20px;
+      color: white;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    header img {
+      height: 50px;
+      width: 50px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      flex-grow: 1;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    nav button {
+      background: white;
+      border: 2px solid #006644;
+      color: #006644;
+ font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    nav button.active, nav button:hover {
+      background: #006644;
+      color: white;
+      box-shadow: 0 0 10px #004d26aa;
+    }
+    main > section {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      display: none;
+      animation: fadeIn 1s ease forwards;
+      padding: 0 15px;
+    }
+    main > section.active {
+      display: block;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #004d26;
+    }
+
+    /* Struktur Pengurus Styles */
+ font-family: Arial, sans-serif;
+    background: #d8f0d8;
+    padding: 20px;
+  }
+  h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 20px;
+  }
+  .accordion {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+  }
+  .accordion:hover {
+    background-color: #388e3c;
+  }
+  .panel {
+    padding: 0 20px;
+    background-color: #e6f0e6;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-radius: 0 0 5px 5px;
+    margin-bottom: 10px;
+  }
+  .panel p {
+    margin: 15px 0;
+    color: #2e7d32;
+    font-size: 16px;
+  }
+
+    /* Jadwal Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      box-shadow: 0 0 10px #004d2622;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      color: #004d26;
+    }
+    th {
+      background-color: #006644;
+      color: white;
+      font-weight: 700;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Animasi fadeIn */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .level {
+ flex-direction: column;
+      }
+      nav button {
+        width: 100%;
+      }
+      header {
+        justify-content: center;
+        gap: 10px;
+      }
+      header h1 {
+        text-align: center;
+        flex-grow: 0;
+      }
+      .collapsible {
+  background-color: #2e7d32;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.active, .collapsible:hover {
+}
+.content {
+  padding: 10px 20px;
+  display: none;
+  overflow: hidden;
+  background-color: #e8f5e9;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.content table th, .content table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  color: #2e7d32;
+}
+.content table th {
+  background-color: #a5d6a7;
+}
+      
+      
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="Photoroom-20250117_161932 (1).png"=Logo" alt="Logo Pondok Queen Ainul Yaqien" />
+  <h1>Pondok Queen Ainul Yaqien</h1>
+</header>
+
+<nav>
+  <button id="infoBtn" class="active">Informasi</button>
+  <button id="strukturBtn">Struktur</button>
+  <button id="jadwalSholatBtn">Jadwal Sholat</button>
+  <button id="jadwalNgajiBtn">Jadwal Ngaji</button>
+  <button id="jadwalPiketBtn">Jadwal Piket</button>
+</nav>
+
+<main>
+  <section id="informasi" class="active">
+    <h2>Informasi Website</h2>
+    <p>Selamat datang di website pengurus pondok Queen Ainul Yaqien. Situs ini bersifat privat, hanya pengurus yang boleh membuka wibsate ini, tujuan dibuatnya website ini untuk bisa menjadi sarana informasi digital sesama pengurus.</p>
+  </section>
+
+  <section id="struktur">
+<h2>Struktur Pengurus Pondok Queen Ainul Yaqien</h2>
+
+<button class="accordion">Pimpinan</button>
+<div class="panel">
+ <p>Gus Achmad Syarifuddin</p>
+</div>
+
+<button class="accordion">Wakil</button>
+<div class="panel">
+  <p>Mas'odi Achmad</p>
+</div>
+
+<button class="accordion">Sekretaris</button>
+<div class="panel">
+  <p>Moh. Thoha Hidayatullah</p>
+</div>
+
+<button class="accordion">Bendahara</button>
+<div class="panel">
+  <p>Achmad Fahim</p>
+</div>
+
+<button class="accordion">Koord. Keamanan</button>
+<div class="panel">
+  <p>Moh. Ali Banun Kalim</p>
+  <p>Achmad Jailani</p>
+  <p>Khodaifi</p>
+</div>
+
+<button class="accordion">Koord. Pendidikan</button>
+<div class="panel">
+  <p>Achmad Romdan</p>
+  <p>Mohammad Luay</p>
+  <p>Achmad Rofiqi</p>
+</div>
+
+<button class="accordion">Koord. Kebersihan</button>
+<div class="panel">
+  <p>Wildi Wahyudi</p>
+  <p>Mohammad Fahruddin</p>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="jadwalSholat">
+    <h2>Jadwal Sholat</h2>
+    <table>
+      <thead>
+        <tr><th>Sholat</th><th>Waktu</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Subuh</td><td>04:10</td></tr>
+        <tr><td>Dzuhur</td><td>11:26</td></tr>
+        <tr><td>Ashar</td><td>14:46</td></tr>
+        <tr><td>Maghrib</td><td>17:17</td></tr>
+        <tr><td>Isya</td><td>18:31</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="jadwalNgaji">
+<button class="collapsible">Pagi (03:00 - 08:00)</button>
+<div class="content">
+  <table>
+    <tr><td>03:00</td><td>Burdah Block</td></tr>
+    <tr><td>04:00</td><td>Shalat Berjamaah Shubuh</td></tr>
+    <tr><td>04:30 - 06:30</td><td>Ngaji sorogan</td></tr>
+    <tr><td>06:00 - 07:30</td><td>Ngaji Sorogan</td></tr>
+ <tr><td>07:30 - 08:00</td><td>Pembacaan Surah Al Mulk & Shalat Dhuha</td></tr>
+  </table>
+</div>
+
+<button class="collapsible">Siang (08:00 - 15:30)</button>
+<div class="content">
+  <table>
+    <tr><td>08:00 - 09:30</td><td>Masuk Madrasah</td></tr>
+    <tr><td>10:00 - 11:20</td><td>Istirahat & Shalat Dzuhur Berjamaah</td></tr>
+    <tr><td>13:00 - 13:30</td><td>Ngaji Sorogan</td></tr>
+    <tr><td>13:30 - 15:00</td><td>Ngaji Sorogan</td></tr>
+    <tr><td>15:30</td><td>Shalat Ashar Berjamaah</td></tr>
+  </table>
+</div>
+
+<button class="collapsible">Sore & Malam (16:30 - 22:00)</button>
+<div class="content">
+  <table>
+    <tr><td>16:30 - 17:00</td><td>Ngaji Bandongan Fathul Qorib</td></tr>
+    <tr><td>17:00 - 17:30</td><td>Istirahat & Waqi'ahan</td></tr>
+    <tr><td>17:30 - 18:00</td><td>Shalat Maghrib Berjamaah</td></tr>
+    <tr><td>18:00 - 19:00</td><td>Ngaji Bandongan Tafsir Al Jalalain</td></tr>
+    <tr><td>19:00 - 19:30</td><td>Shalat Isya', Shalat Witir Berjamaah</td></tr>
+    <tr><td>19:30 - 21:00</td><td>Masuk Madrasah</td></tr>
+    <tr><td>21:00 - 22:00</td><td>Muthalaah & Istirahat</td></tr>
+  </table>
+</div>
+  </section>
+
+  <section id="jadwalPiket">
+<h2>Jadwal Muthola'ah</h2>
+<table border="1" style="width:100%; border-collapse: collapse; text-align: center;">
+  <tr style="background-color: #4CAF50; color: white;">
+    <th>No</th>
+    <th>Nama Penanggung Jawab</th>
+    <th>Anggota</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Ach. Jailani</td>
+    <td>Rawiet, Sahrul, Fikri, Zaki, Ainun</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Wildi Wahyudi</td>
+    <td>Zaka, Darwis, Andika, Alvino, Febri</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Moh. Thoha Hidayatullah</td>
+    <td>Wafir, Royyis,</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Bahrul Ulum</td>
+    <td>Farhan, Aswan, Hayat, Farel, Syaqiq</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Mas'odi Achmad</td>
+    <td>Danil, Ibrahim</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Moh. Fahruddin</td>
+    <td>Aliman, Saiful, Sayadi, Unis,</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Khodaifi</td>
+    <td>Waqid, Nuril, Idan, Faqih</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>Achmad Rofiqi</td>
+    <td>Muslim, Wikdan, fadil, nabil</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Achmad Romdan</td>
+    <td>Jibril, samsul </td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>Achmad Ferdiyanto</td>
+    <td>Nazil</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>Muhammad Luay</td>
+    <td>Riski Am, Umam R</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>Moh. Ali Banun Kalim</td>
+    <td>Muzammil, Andre</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>saifur Rahman</td>
+    <td>Feri</td>
+
+  
+  </tr>
+</table>
+  </section>
+</main>
+
+<script>
+  // Navigasi tab
+  const buttons = document.querySelectorAll('nav button');
+  const sections = document.querySelectorAll('main > section');
+  
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const targetId = btn.id.replace('Btn', '');
+      sections.forEach(sec => {
+        sec.classList.toggle('active', sec.id === targetId);
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Collapsible
+  const coll = document.querySelectorAll('.collapsible');
+  coll.forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+ const isOpen = content.style.display === 'block';
+      document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
+      content.style.display = isOpen ? 'none' : 'block';
+    });
+  });
+
+  // Accordion
+  const acc = document.querySelectorAll('.accordion');
+  acc.forEach(button => {
+    button.addEventListener('click', () => {
+      const panel = button.nextElementSibling;
+      const isOpen = panel.style.maxHeight;
+      document.querySelectorAll('.panel').forEach(p => p.style.maxHeight = null);
+      if (!isOpen) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
